@@ -1,3 +1,5 @@
+let qrScanner = undefined;
+
 const tickets = [
     { id: "1234", tier: 1 },
     { id: "1337", tier: 0 },
@@ -47,6 +49,7 @@ const renderTickets = (id) => {
 
 const closeResultModal = () => {
     document.getElementById("result-modal").style.display = "none";
+    qrScanner.start()
 };
 
 const openResultModal = (content, color) => {
@@ -55,6 +58,7 @@ const openResultModal = (content, color) => {
     innerResultModal.style.backgroundColor = color;
     innerResultModal.getElementsByClassName("inner-content")[0].innerHTML = content;
     resultModal.style.display = "inline-block";
+    qrScanner.stop();
 };
 
 

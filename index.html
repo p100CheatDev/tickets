@@ -11,6 +11,27 @@
     <h1>Tickets Scanner</h1>
     <video id="qr-elem"></video>
     <table id="ticket-list"></table>
+    
+    <script type="module">
+        import QrScanner from './qr-scanner/qr-scanner.min.js';
+        const videoElem = document.getElementById("qr-elem");
+
+        qrScanner = new QrScanner(
+            videoElem,
+            result => handleResult(result, qrScanner), {
+            onDecodeError: error => {
+                console.log(error);
+            },
+            highlightScanRegion: true,
+            highlightCodeOutline: true,
+        });
+
+        qrScanner.start();
+
+        renderTickets("ticket-list");
+
+    </script>
+
     <div id="result-modal">
         <div class="inner">
             <div class="inner-content">test</div>
@@ -19,24 +40,6 @@
     </div>
 
     <button onclick="openResultModal('test xd', 'red')">Test open</button>
-    
-    <script type="module">
-        import QrScanner from './qr-scanner/qr-scanner.min.js';
-        const videoElem = document.getElementById("qr-elem");
-
-        const qrScanner = new QrScanner(
-            videoElem,
-            result => handleResult(result), {
-            onDecodeError: error => {
-                console.log(error);
-            },
-            highlightScanRegion: true,
-            highlightCodeOutline: true,
-        });
-
-        renderTickets("ticket-list");
-
-    </script>
     
 </body>
 </html>
