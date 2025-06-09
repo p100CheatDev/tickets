@@ -68,7 +68,7 @@ const openResultModal = (content, color) => {
 
     innerResultModal.style.color = textColor;
     innerResultModal.style.backgroundColor = backgroundColor;
-    innerContent.innerHTML = content;
+    innerContent.innerHTML = displayContent;
     resultModal.style.display = "inline-block";
     qrScanner.stop();
 };
