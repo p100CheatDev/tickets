@@ -1,16 +1,16 @@
 let qrScanner = undefined;
 
 const tickets = [
-    { id: "1234", tier: 1 },
-    { id: "1337", tier: 0 },
+    { id: "b9d0027e-8056-4bd0-bac6-c84df34d3f5d", tier: 1 },
+    { id: "e01c7e61-ea72-4aea-bc4b-477c3dc33336", tier: 0 },
     { id: "4141", tier: 2 },
 ];
 
 const ticketTiers = [
-    { color: "#E44C4C" }, // red
-    { color: "#86E61F" }, // green
-    { color: "#E6B81F" }, // yellow
-    { color: "#1F6CE6" }, // blue
+    { color: "#E44C4C", text: "SPONSOR" }, // red
+    { color: "#86E61F", text: "PLAYER" }, // green
+    { color: "#E6B81F", text: "NORMAL" }, // yellow
+    { color: "#1F6CE6", text: "SPEAKER" }, // blue
 ];
 
 const renderTickets = (id) => {
@@ -62,8 +62,8 @@ const openResultModal = (content, color) => {
     const foundTicket = tickets.find(ticket => ticket.id === content);
     if (foundTicket !== undefined) {
         textColor = "black";
-        backgroundColor = ticketTiers[foundTicket.tier];
-        displayContent = "Enjoy da ticket";
+        backgroundColor = ticketTiers[foundTicket.tier].color;
+        displayContent = ticketTiers[foundTicket.tier].text;
     }
 
     innerResultModal.style.color = textColor;
