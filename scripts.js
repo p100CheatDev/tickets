@@ -13,7 +13,6 @@ const ticketTiers = [
     { color: "#1F6CE6" }, // blue
 ];
 
-
 const renderTickets = (id) => {
     const target = document.getElementById(id);
     let targetContents = "";
@@ -55,8 +54,21 @@ const closeResultModal = () => {
 const openResultModal = (content, color) => {
     const resultModal = document.getElementById("result-modal");
     const innerResultModal = resultModal.getElementsByClassName("inner")[0];
-    innerResultModal.style.backgroundColor = color;
-    innerResultModal.getElementsByClassName("inner-content")[0].innerHTML = content;
+    const innerContent = innerResultModal.getElementsByClassName("inner-content")[0];
+    let textColor = "white";
+    let backgroundColor = "black";
+    let displayContent = "INVALID TICKET";
+
+    const foundTicket = tickets.find(ticket => ticket.id === content);
+    if (foundTicket !== undefined) {
+        textColor = "black";
+        backgroundColor = ticketTiers[foundTicket.tier];
+        displayContent = "Enjoy da ticket";
+    }
+
+    innerResultModal.style.color = textColor;
+    innerResultModal.style.backgroundColor = backgroundColor;
+    innerContent.innerHTML = content;
     resultModal.style.display = "inline-block";
     qrScanner.stop();
 };
