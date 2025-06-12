@@ -333,7 +333,9 @@ const normal_tickets = [
     { id: "15f6b12c-17ee-4db6-8c64-0d5ee121d987", tier: TIER_NORMAL },
     { id: "13db7ecd-46d2-4a89-be55-a824ba104e6e", tier: TIER_NORMAL },
     { id: "5cf9499d-a985-435c-b4b1-fb4f7c02b074", tier: TIER_NORMAL },
-    { id: "2be4054a-f4f6-4724-b61f-264c0e815b9e", tier: TIER_NORMAL }
+    { id: "2be4054a-f4f6-4724-b61f-264c0e815b9e", tier: TIER_NORMAL },
+    { id: "f6464e54-1b1b-48ad-8de6-4e3febbd64ba", tier: TIER_NORMAL },
+    { id: "dda73ed2-1b05-430a-8192-de3cc2c988cd", tier: TIER_NORMAL }
 ];
 const crew_tickets = [
     { id: "12c0c150-fc42-4958-9146-acff616a1622", tier: TIER_CREW },
